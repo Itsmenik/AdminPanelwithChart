@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Latest Video</title>
+
+</head>
+<body>
+  <div class="content-box">
+    <p>latest-video works!</p>
+    <img src="../../assets/Images/GaminThumnail.jpg" alt="No Image">
+
+    <h4>{{data.videoTitle|textLimit:50}}</h4>
+
+    <div class="video-data">
+      <div class="views">
+        <span class="material-symbols-outlined">equalizer</span>
+        <span>{{data.clickThrough}}</span>
+      </div>
+      <div class="views">
+        <span class="material-symbols-outlined">chat</span>
+        <span>{{data.duration}}</span>
+      </div>
+      <div class="views">
+        <span class="material-symbols-outlined"></span>
+        <span>100</span>
+      </div>
+      <div class="views">
+        <span class="material-symbols-outlined">thumb_up</span>
+        <span>100</span>
+      </div>
+    </div>
+
+    <div class="ranking">
+      <h5>First 6 days 21 hours</h5>
+      <table>
+        <tr>
+          <td>Ranking by Views</td>
+          <td>2 of 10</td>
+        </tr>
+        <tr>
+          <td>Views</td>
+          <td>177</td>
+        </tr>
+        <tr>
+          <td>Impression Click-through</td>
+          <td>10%</td>
+        </tr>
+        <tr>
+          <td>Average View Duration</td>
+          <td>2</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="link">
+      <!-- Optional link content here -->
+    </div>
+  </div>
+</body>
+</html>

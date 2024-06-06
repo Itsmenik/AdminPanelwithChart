@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  @for (item of data; track data)
+   { <section>
+      <img src = "../../assets/Images/publisthumnail.jpg"/>
+      <div class="content">
+       <h5> {{item.videTitle|textLimit:20}} </h5>
+      </div>
+      <div class=" data" >
+        <div class="video-data">
+          <div class="views">
+            <span class="material-symbols-outlined">equalizer</span>
+            <span>{{item.clickThrough}}</span>
+          </div>
+          <div class="views">
+            <span class="material-symbols-outlined">chat</span>
+            <span>{{item.duration}}</span>
+          </div>
+          <div class="views">
+            <span class="material-symbols-outlined"></span>
+            <span>100</span>
+          </div>
+          <div class="views">
+            <span class="material-symbols-outlined">thumb_up</span>
+            <span>100</span>
+          </div>
+        </div>
+
+      </div>
+   </section>
+   }
+
+   <div class="links">
+    <a routerLink = "/content">Go To Video</a>
+   </div>
+
+  </body>
+</html>
+
+

@@ -1,0 +1,29 @@
+
+
+<h1 class="button-30">Admin Panel</h1> <br /> <br />
+
+@for(item of items; track item){
+  <section [routerLink]="item.link" >
+    <button class="button-17"> <span class="material-symbols-outlined" >
+      {{item.icon}}
+      </span> &nbsp;
+      {{item.title}}</button>
+  </section>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

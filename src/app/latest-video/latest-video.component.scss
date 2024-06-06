@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 3px;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 1rem;
+}
+
+.content-box {
+
+  padding: 1rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+h4 {
+  margin-bottom: 0.5rem;
+}
+
+.video-data {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.views {
+  display: flex;
+  align-items: center;
+}
+
+.views span {
+  margin-right: 0.5rem;
+}
+
+.ranking {
+  margin-bottom: 1rem;
+}
+
+.ranking h5 {
+  margin-bottom: 0.5rem;
+}
+
+.ranking table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ranking td {
+
+  padding: 0.5rem;
+}
+
+.link {
+  margin-top: 1rem;
+}

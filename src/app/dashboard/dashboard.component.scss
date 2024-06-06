@@ -1,0 +1,30 @@
+:host{
+display: grid;
+grid-template-columns: 1fr 1fr 1fr;
+max-width: 1000px;
+gap: 1.5rem 2rem;
+//this is like first column and the 3 column
+}
+
+
+//this will start from the second row
+audience-chart {
+  grid-row: 2/4;
+   height: max-content; //  from line 2 to line 4
+
+}
+
+subscriber-watch-timechart,
+veiwsand-revenue-chart
+{
+  grid-column: 2/4;
+}
+
+
+
+
+
+
+
+
+

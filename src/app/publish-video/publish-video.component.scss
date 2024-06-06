@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 1rem;
+}
+
+section {
+  display: flex;
+   gap: 1rem ;
+
+   img{
+    width: 35%;
+    height: 25%;
+  }
+  .content {
+    flex: 1 1 auto;
+
+    .data{
+       display: flex;
+       justify-content: space-between;
+
+      .div{
+        display: flex;
+        align-items: center;
+       }
+       span{
+        font-size: 0.9rem;
+       }
+    }
+  }
+}
+
+.links {
+  margin-top: 1rem;
+   a{
+    text-decoration: none;
+   }
+   &:hover{
+    border-bottom: 1px solid rgb(60, 11, 194);
+   }
+
+}
+

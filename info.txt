@@ -1,0 +1,363 @@
+So we are going to create  admin dashboard in the agular js
+The Ui design that we are using is called the (neumorphism(IU design )
+
+/// then we are going to change the prot
+below under the serve we have to angular.json for the port
+"serve": {
+    "builder": "@angular-devkit/build-angular:dev-server",
+    "options": {
+      "port": 4  // then just add the port
+    },
+
+as well as we have to remove the  "prifix" app from the json folder
+
+--> To create a project with the scss -> ng new my-angular-project --style=scss
+
+
+// now we are going to add the icon
+--> google icons --> https://fonts.google.com/icons
+
+whenever we click on that icon --> we get the url
+just paste this url in the index.html --> <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+ // then copy the Style and paste into the style.css of that component
+ // copy the html and then paste it into -->
+
+/////////////////////////////////////////////////////////////////////////////////
+Basic Strucuture of the Project
+
+--> 1 Sidenav
+--> 2 header
+--> 3 Body
+
+first create the component  --> pageheader (it will be standalone )
+
+/// Now we are going to design the app component in the design we are give the design of the whole scree
+//into the grid (the grid say 1 row will come in first column nad then the third row will go into the the second row
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+Now the main page designing
+
+the main desing we are going to done in the app.component.scss
+//  the main page the header page and the side
+
+<pageheader/> //
+
+<sidenav/>
+
+
+<main>
+  <h2 *ngFor="let i of [2323232,22,2,3,3,2,3,2,3,2,3,2,3,2,3,2,3,2,7,8,8,6,5]">Main Content</h2>
+  // just  taking array to remove the window scroller from the bottam
+
+</main>
+
+
+this is the csss
+:host{
+  display: grid;//the whole screen in the grid
+  grid-template-columns: 250px 1fr; // Side nav column the size of the first column will be 250 and then othe left space will send to the other column
+  grid-template-rows: 60px 1fr; //this is the frist row for the header
+} // fr is stand of the fracont
+
+
+sidenav{
+  grid-column: 1/2; // first row and the second column
+  grid-row: 1/3; second row the third column
+  border-right: 1px solid rgb(184, 176, 176);
+
+}
+
+main{
+  padding: 1rem;
+  height: calc(100vh - 60px);//in the bottom we get window scroller by minus the
+  // line we will remove the window
+  overflow: auto; //it mean the will go under the upper contain
+  // when the content scroll
+}
+
+pageheader{
+  border-bottom: 1px solid rgb(184, 176, 176);
+}
+
+Now the mian design is completed we
+
+//////////////////////////////////////
+Now the page header design
+(some comman thing that we are using the most
+--> we can define that thing in the app-root
+(create a var in the app-root and then use that variable anywhere )
+
+app-root{
+  --ligh-black: rgba(48,48,48,0.1) //just put -- in the front of the variable and then define the value of that var
+)
+(where we want to use that vlue --> var(variablename))
+
+
+
+
+
+
+span {
+  width: 50px;
+  height: 50px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+  border-radius: 50%;
+
+   &:hover{ // scss mei parent & ka sign lagakar aisa kar sakte h
+    cursor: pointer;
+     background-color: beige
+   }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+side nav  button and the header is sdone
+now we have to show the card in the main screen----------------------->
+
+design framwerk we are going to use is --> here is the url https://neumorphism.io/#e0e0e0
+here is the code to shadow like Strucuture  -->
+
+this is defined in the style.css we can use this globally
+here is the code
+.flat {
+  // border-radius: 10px;
+  // padding:0.75rem;
+  // box-shadow: 5px 5px 7px wheat,  ;
+  border-radius: 38px;
+  background: #e0e0e0;
+  box-shadow:  20px 20px 29px #bebebe,
+               -20px -20px 29px #ffffff;
+  }
+
+Now we are going to write the logic of the router (like when someone click on the button
+where we have to send them)
+
+
+here is the code --> export class SidenavComponent {
+  items:{icon:string; title:string; link:string}[]=[
+   {icon:'teams_Dashboard',title:'Dashboard', link:'dashboard'}
+  ]
+
+  //first we had defined the type of the item array --> and then hardcode with some value
+}
+
+and then in  the html
+
+
+@for(item of items; track items){
+  <section>
+    <button class="button-17"> <span class="material-symbols-outlined">
+      {{item.icon}}
+      </span> &nbsp;
+      {{item.title}}</button>
+  </section>
+}
+
+////////////////////Now for the link
+we have to import the router moudule ------>
+in the Sidenav.component.ts -->
+
+and then in the button  <button class="button-17"> <span class="material-symbols-outlined" [routerLink]="item.link">
+to send the user to the given location
+
+
+===> when we are passing the varible in the
+router we use the square bracket
+and when we passsing the string we use the
+simple routerline = '/path'
+========================
+Now afte that we have to configure the (app.routes.ts)
+where in the array we have to defined on which path which compnent wil show the user
+
+In the Router array we have mention the path and and the componrtnt
+of that path -->
+{path:'analytic',component:AnalyticComponent},
+and also in the sidenave where we are usgin the link we have to import the
+RouterLink then only we can acess this  feature
+
+////////////////////////////////////////////////////////////
+Now we have to mention the router outlet where we want to show our pages in the
+app.component.html under the main component -->
+
+there is an  error occcur that the  route is not working ---> when we comment the pagenotfound
+then --> that error solve -->
+
+//////////////////////////////////////////////////////////////////////////////////////////
+In the main content we have two thing first one youtube analysi and the
+second one is analysi just created the component
+
+---> Now after adding the class just add the flat that we had added before in the ,
+global component -->
+(
+  here is all the design -->
+
+
+  :host{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; ----> dividing columns into the three parts
+    max-width: 1000px;
+    gap: 1.5rem 2rem;
+    //this is like first column and the 3 column
+    }
+
+    //this will start from the second row
+    audience-chart {
+      grid-row: 2/4;
+       height: max-content; //  from line 2 to line 4
+
+    }
+
+    subscriber-watch-timechart,
+    veiwsand-revenue-chart
+    {
+      grid-column: 2/4;
+    }
+)
+////////////////////////////////////////////////////////
+Now we have to create a folder with the name of asset
+and then use for storing  the image --.
+
+We fit some change in the Latesvideo in the design
+
+
+????????????????????????????????????????????????????????????????????????????????????????
+Now try to show the data from the data base we
+create a array from where we are sending the data into the fornt
+end  _--->
+
+data  = {
+videoTitle:
+Full Stack Angular 17+ .NET 8 Library Manageme
+ranking: '2',
+clickThrough: 10
+duration: 3:22',
+views: 100,
+comments: 18,
+Likes: 50
+}
+
+ //////////////////////
+ Now we are going to create a pipe(pipe is kind of the feauter that is used to sedn the data to the UI ) (such that if the name length out of the specific length then it
+will show the ... in t name  )
+
+--->(ng g p TextLimit) --> this will create file with the name of the
+
+this .ts file contain some code
+
+transform(value: unknown, ...args: unknown[]): unknown {
+  return null;
+}
+
+there is a fucnction that take the args adn then return  required vlaue
+here is our logic --->
+
+transform(value: string, maxChars:number): string {
+
+  if(value.length<=maxChars) return value;
+
+  return value.slice(0,maxChars)+'...';
+
+}
+
+and then we have to imort this intio the component.ts where we want to use this with the name of the
+pipeline --> TextLimit into the import it  automatically import everything ===>
+--->in the html we have to show like this -->
+
+<h4>{{data.videoTitle|textLimit:50}}</h4>
+(how it workd now in the first args it take value of the string and then in the second args it take the limit)
+if we import a pipe in the component and then  we use this | (symbols) left side consider as first arg and right side consider second args
+
+Now the latest video is completed ,
+///////////////////////////////////////////////
+Now we have  to work on the publish video
+we are working the array-object  --> just leave the Comment
+
+/////////////////////////////////////////////////////////////
+now we are going to design the PieChart
+
+
+and then tin the html wer are going to create a
+section for each video
+
+ ////////////////////////// Now the comment section ////////////////////// \
+ End of the comment Section
+
+ ?/////////////////////////////////////////////////
+Now we are going to include the chart  --->
+To use Char ther is a Library in the in js ---> (ng2charts)
+
+To install the ng hcar  (npm install ng2-charts --save --force)
+when we try to  install with the ng it give the error
+
+to use tyhis we habe to import he CharData from the Chart.js
+
+There is a change that the NgModule is replace with the BaseCharDirective
+
+import { BaseChartDirective } from 'ng2-charts;
+then we ahve to import in the --> --->  Imports
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
